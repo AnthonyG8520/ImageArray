@@ -11,8 +11,8 @@ public class Comment {
     private String text;
 
     @ManyToOne
-    @JoinColumn(name = "image_id")
-    private Image image;
+    @JoinColumn(name = "post_id")
+    private Post post;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -20,10 +20,10 @@ public class Comment {
 
     public Comment(){}
 
-    public Comment(long id, String text, Image image, User user) {
+    public Comment(long id, String text, Post post, User user) {
         this.id = id;
         this.text = text;
-        this.image = image;
+        this.post = post;
         this.user = user;
     }
 
@@ -43,12 +43,12 @@ public class Comment {
         this.text = text;
     }
 
-    public Image getImage() {
-        return image;
+    public Post getPost() {
+        return post;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
+    public void setPost(Post post) {
+        this.post = post;
     }
 
     public User getUser() {

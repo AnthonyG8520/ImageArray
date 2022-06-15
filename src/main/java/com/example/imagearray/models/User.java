@@ -17,7 +17,7 @@ public class User {
     private String email;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Image> images;
+    private List<Post> posts;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Comment> comments;
@@ -63,12 +63,12 @@ public class User {
         this.email = email;
     }
 
-    public List<Image> getImages() {
-        return images;
+    public List<Post> getPosts() {
+        return posts;
     }
 
-    public void setImages(List<Image> images) {
-        this.images = images;
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 
     public List<Comment> getComments() {

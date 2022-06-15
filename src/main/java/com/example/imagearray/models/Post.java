@@ -4,12 +4,12 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Image {
+public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(nullable = false)
-    private String Url;
+    private String imageUrl;
     @Column(nullable = true)
     private String description;
 
@@ -17,14 +17,14 @@ public class Image {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "image")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
     private List<Comment> comments;
 
-    public Image(){}
+    public Post(){}
 
-    public Image(long id, String url, String description, User user) {
+    public Post(long id, String imageUrl, String description, User user) {
         this.id = id;
-        Url = url;
+        this.imageUrl = imageUrl;
         this.description = description;
         this.user = user;
     }
@@ -37,12 +37,12 @@ public class Image {
         this.id = id;
     }
 
-    public String getUrl() {
-        return Url;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setUrl(String url) {
-        Url = url;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getDescription() {
