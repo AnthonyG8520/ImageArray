@@ -16,7 +16,7 @@ public class PostController {
 
     @GetMapping("/")
     public String index(){
-        return "image/index";
+        return "post/index";
     }
 
     @GetMapping("post/{id}")

@@ -24,6 +24,15 @@ public class User {
 
     public User(){}
 
+    public User(User copy){
+        id = copy.id;
+        username = copy.username;
+        password = copy.password;
+        email = copy.email;
+        posts = copy.posts;
+        comments = copy.comments;
+    }
+
     public User(long id, String username, String password, String email) {
         this.id = id;
         this.username = username;
