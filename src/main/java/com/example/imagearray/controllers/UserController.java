@@ -2,6 +2,7 @@ package com.example.imagearray.controllers;
 
 import com.example.imagearray.models.User;
 import com.example.imagearray.repositories.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
