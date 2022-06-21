@@ -1,0 +1,18 @@
+#notLoggedNav ul{
+    list-style: none;
+}
+
+#notLoggedNav nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+#notLoggedNav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px;
+    flex-basis: 100px;
+}

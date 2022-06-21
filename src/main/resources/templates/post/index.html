@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>ImageArray</title>
+    <link rel="stylesheet" th:href="@{/index-style.css}">
 </head>
 <body>
+<nav th:replace="partials :: notLoggedNav"></nav>
 <h1>This will be the home page</h1>
 </body>
 </html>
