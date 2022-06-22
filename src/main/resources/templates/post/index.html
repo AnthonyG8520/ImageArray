@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>ImageArray</title>
     <link rel="stylesheet" th:href="@{/index-style.css}">
 </head>
 <body>
-<nav th:replace="partials :: notLoggedNav"></nav>
+<div sec:authorize="!isAuthenticated()">
+    <nav th:replace="partials :: notLoggedNav"></nav>
+</div>
+<div sec:authorize="isAuthenticated()">
+    <nav th:replace="partials :: loggedInNav"></nav>
+</div>
 <h1>This will be the home page</h1>
 </body>
 </html>
