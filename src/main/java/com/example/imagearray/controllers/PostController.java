@@ -20,7 +20,8 @@ public class PostController {
     }
 
     @GetMapping("/")
-    public String index(){
+    public String index(Model model){
+        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "post/index";
     }
 
