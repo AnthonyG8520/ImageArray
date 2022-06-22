@@ -1,9 +1,23 @@
-<div th:fragment="notLoggedNav" id="notLoggedNav">
+<nav th:fragment="notLoggedNav" id="notLoggedNav">
+    <h2>Image Array</h2>
+    <ul>
+        <li><a th:href="@{/sign-up}">SignUp</a></li>
+        <li><a th:href="@{/login}">Login</a></li>
+    </ul>
+</nav>
+
+<div th:fragment="loggedInNav" id="loggedInNav">
     <nav>
-        <h2>ImageArray</h2>
+        <h2>Image Array</h2>
         <ul>
-            <li><a href="/sign-up">SignUp</a></li>
-            <li><a href="/login">Login</a></li>
+            <li>
+                <a th:href="@{/profile/{id}(id=${user.getId()})}">Profile</a>
+            </li>
+            <li>
+                <form th:action="@{/logout}" th:method="post">
+                    <button style="background: none; color: inherit; border: none; padding: 0; font: inherit; cursor: pointer;" type="submit">Logout</button>
+                </form>
+            </li>
         </ul>
     </nav>
 </div>
