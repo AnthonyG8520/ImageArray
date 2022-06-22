@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>profile</title>
 </head>
 <body>
 <h1>This page will show a single profile page</h1>
+<h1 th:text="${user.username}"></h1>
+<p th:text="${user.email}"></p>
 </body>
 </html>
