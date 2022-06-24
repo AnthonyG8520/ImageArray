@@ -15,6 +15,8 @@ public class User {
     private String password;
     @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
+    private String profilePicture;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Post> posts;
@@ -70,6 +72,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
     }
 
     public List<Post> getPosts() {
