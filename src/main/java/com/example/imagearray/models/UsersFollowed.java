@@ -10,12 +10,13 @@ public class UsersFollowed {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    @Column(nullable = false)
-    private long followedUser;
+    @ManyToOne
+    @JoinColumn(name = "followed_user")
+    private User followedUser;
 
     public UsersFollowed(){}
 
-    public UsersFollowed(long id, User user, long followedUser) {
+    public UsersFollowed(long id, User user, User followedUser) {
         this.id = id;
         this.user = user;
         this.followedUser = followedUser;
@@ -37,11 +38,11 @@ public class UsersFollowed {
         this.user = user;
     }
 
-    public long getFollowedUser() {
+    public User getFollowedUser() {
         return followedUser;
     }
 
-    public void setFollowedUser(long followedUser) {
+    public void setFollowedUser(User followedUser) {
         this.followedUser = followedUser;
     }
 }
