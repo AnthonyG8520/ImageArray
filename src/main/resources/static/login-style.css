@@ -1,10 +1,5 @@
-#profilePic{
-    height: 50px;
-    width: 50px;
-}
-
-/*nav when logged in start*/
-#loggedInNav ul{
+/*nav when not logged in start*/
+#notLoggedNav ul{
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -13,10 +8,10 @@
     flex-basis: 100px;
 }
 
-#loggedInNav nav{
+#notLoggedNav{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 0 20px;
 }
-/*nav when logged in end*/
+/*nav when not logged in end*/

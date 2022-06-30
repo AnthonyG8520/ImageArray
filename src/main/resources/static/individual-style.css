@@ -1,0 +1,35 @@
+/*nav when not logged in start*/
+#notLoggedNav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px;
+    flex-basis: 100px;
+}
+
+#notLoggedNav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+/*nav when not logged in end*/
+
+/*nav when logged in start*/
+#loggedInNav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px;
+    flex-basis: 100px;
+}
+
+#loggedInNav nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+/*nav when logged in end*/
