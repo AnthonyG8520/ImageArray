@@ -15,12 +15,11 @@ public class User {
     private String password;
     @Column(nullable = false)
     private String email;
-    @Column(nullable = false)
+    @Column
     private String profilePicture;
 
-    @ManyToMany
-    @JoinTable(name = "followed_users", joinColumns = {@JoinColumn(name = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "followed_user")})
-    private List<User> followedUsers;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<UsersFollowed> usersFollowed;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Post> posts;
@@ -84,6 +83,14 @@ public class User {
 
     public void setProfilePicture(String profilePicture) {
         this.profilePicture = profilePicture;
+    }
+
+    public List<UsersFollowed> getUsersFollowed() {
+        return usersFollowed;
+    }
+
+    public void setUsersFollowed(List<UsersFollowed> usersFollowed) {
+        this.usersFollowed = usersFollowed;
     }
 
     public List<Post> getPosts() {

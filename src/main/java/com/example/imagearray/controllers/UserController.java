@@ -1,7 +1,9 @@
 package com.example.imagearray.controllers;
 
 import com.example.imagearray.models.User;
+import com.example.imagearray.models.UsersFollowed;
 import com.example.imagearray.repositories.UserRepository;
+import com.example.imagearray.repositories.UsersFollowedRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -14,10 +16,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class UserController {
     private final UserRepository userDao;
+    private final UsersFollowedRepository usersFollowedDao;
     private PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder){
+    public UserController(UserRepository userDao,UsersFollowedRepository usersFollowedDao ,PasswordEncoder passwordEncoder){
         this.userDao = userDao;
+        this.usersFollowedDao = usersFollowedDao;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -42,7 +46,9 @@ public class UserController {
 
     @GetMapping("/profile/{id}")
     public String showProfile(@PathVariable Long id, Model model){
-        model.addAttribute("user", userDao.getById(id));
+        User user = userDao.getById(id);
+        model.addAttribute("user", user);
+
         return "user/profile";
     }
 }
