@@ -18,6 +18,10 @@ public class User {
     @Column(nullable = false)
     private String profilePicture;
 
+    @ManyToMany
+    @JoinTable(name = "followed_users", joinColumns = {@JoinColumn(name = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "followed_user")})
+    private List<User> followedUsers;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Post> posts;
 
