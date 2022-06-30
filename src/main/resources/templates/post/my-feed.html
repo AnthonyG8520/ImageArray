@@ -2,16 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>IndividualPost</title>
-    <link rel="stylesheet" th:href="@{/individual-style.css}">
+    <title>My Feed</title>
+    <link rel="stylesheet" th:href="@{/my-feed-style.css}">
 </head>
 <body>
-<div sec:authorize="!isAuthenticated()">
-    <nav th:replace="partials :: notLoggedNav"></nav>
-</div>
 <div sec:authorize="isAuthenticated()">
     <nav th:replace="partials :: loggedInNav"></nav>
 </div>
-<h1>This page wil show an individual post</h1>
+
+
 </body>
 </html>

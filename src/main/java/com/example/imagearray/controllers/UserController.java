@@ -48,7 +48,6 @@ public class UserController {
     public String showProfile(@PathVariable Long id, Model model){
         User user = userDao.getById(id);
         model.addAttribute("user", user);
-        model.addAttribute("followedUsers", user.getUsersFollowed());
         return "user/profile";
     }
 }

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>profile</title>
     <link rel="stylesheet" th:href="@{/profile-page-style.css}">
 </head>
 <body>
+<div sec:authorize="isAuthenticated()">
+    <nav th:replace="partials :: loggedInNav"></nav>
+</div>
 <h1>This page will show a single profile page</h1>
 <div>
     A users profile picture will go here
@@ -13,8 +16,5 @@
 </div>
 <h1 th:text="${user.username}"></h1>
 <p th:text="${user.email}"></p>
-<div th:each="followed : ${followedUsers}">
-    <p th:text="${followed.followedUser.username}"></p>
-</div>
 </body>
 </html>

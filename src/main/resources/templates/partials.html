@@ -1,5 +1,5 @@
 <nav th:fragment="notLoggedNav" id="notLoggedNav">
-    <h2>Image Array</h2>
+    <h2><a th:href="@{/}">Image Array</a></h2>
     <ul>
         <li><a th:href="@{/sign-up}">SignUp</a></li>
         <li><a th:href="@{/login}">Login</a></li>
@@ -8,7 +8,7 @@
 
 <div th:fragment="loggedInNav" id="loggedInNav">
     <nav>
-        <h2>Image Array</h2>
+        <h2><a th:href="@{/}">Image Array</a></h2>
         <ul>
             <li>
                 <a th:href="@{/profile/{id}(id=${user.getId()})}">Profile</a>

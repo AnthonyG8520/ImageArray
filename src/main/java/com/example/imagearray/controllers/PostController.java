@@ -44,4 +44,10 @@ public class PostController {
         postDao.save(post);
         return "redirect:/";
     }
+
+    @GetMapping("/feed")
+    public String myFeed(Model model){
+        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        return "post/my-feed";
+    }
 }

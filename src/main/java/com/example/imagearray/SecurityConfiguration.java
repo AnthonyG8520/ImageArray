@@ -57,7 +57,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 /* Pages that require authentication */
                 .and()
                 .authorizeRequests()
-                .antMatchers("/profile/{id}", "/post/create")
+                .antMatchers("/profile/{id}", "/post/create", "/feed")
                 .authenticated()
 
 
