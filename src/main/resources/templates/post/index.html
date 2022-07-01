@@ -5,18 +5,18 @@
     <title>ImageArray</title>
     <link rel="stylesheet" th:href="@{/index-style.css}">
 </head>
-<body>
-<div sec:authorize="!isAuthenticated()">
-    <nav th:replace="partials :: notLoggedNav"></nav>
-</div>
-<div sec:authorize="isAuthenticated()">
-    <nav th:replace="partials :: loggedInNav"></nav>
-</div>
-<h1>Explore</h1>
-<div th:each="post : ${posts}">
-    <img style="height: 150px; width: 150px" th:src="${post.imageUrl}">
-    <p th:text="${post.description}"></p>
-    <h4 th:text="${post.user.username}"></h4>
-</div>
-</body>
+    <body>
+        <div sec:authorize="!isAuthenticated()">
+            <nav th:replace="partials :: notLoggedNav"></nav>
+        </div>
+        <div sec:authorize="isAuthenticated()">
+            <nav th:replace="partials :: loggedInNav"></nav>
+        </div>
+        <h1>Explore</h1>
+        <div th:each="post : ${posts}">
+            <img style="height: 150px; width: 150px" th:src="${post.imageUrl}">
+            <p th:text="${post.description}"></p>
+            <h4 th:text="${post.user.username}"></h4>
+        </div>
+    </body>
 </html>

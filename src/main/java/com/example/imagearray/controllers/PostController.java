@@ -3,6 +3,7 @@ package com.example.imagearray.controllers;
 import com.example.imagearray.models.Post;
 import com.example.imagearray.models.User;
 import com.example.imagearray.repositories.PostRepository;
+import com.example.imagearray.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class PostController {
     private final PostRepository postDao;
+    private final UserRepository userDao;
 
-    public PostController(PostRepository postDao){
+    public PostController(PostRepository postDao, UserRepository userDao){
         this.postDao = postDao;
+        this.userDao = userDao;
     }
 
     @GetMapping("/")
@@ -46,9 +49,11 @@ public class PostController {
         return "redirect:/";
     }
 
-    @GetMapping("/feed")
-    public String myFeed(Model model){
+    @GetMapping("/feed/{id}")
+    public String myFeed(@PathVariable Long id, Model model){
+        User user = userDao.getById(id);
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        model.addAttribute("followed", user.getUsersFollowed());
         return "post/my-feed";
     }
 }
