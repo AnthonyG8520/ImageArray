@@ -53,7 +53,7 @@ public class PostController {
     public String myFeed(@PathVariable Long id, Model model){
         User user = userDao.getById(id);
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-        model.addAttribute("followed", user.getUsersFollowed());
+        model.addAttribute("followedUsers", user.getUsersFollowed());
         return "post/my-feed";
     }
 }
