@@ -22,6 +22,7 @@ public class PostController {
     @GetMapping("/")
     public String index(Model model){
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        model.addAttribute("posts", postDao.findAll());
         return "post/index";
     }
 
