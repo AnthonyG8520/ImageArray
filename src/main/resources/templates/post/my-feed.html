@@ -5,11 +5,16 @@
     <title>My Feed</title>
     <link rel="stylesheet" th:href="@{/my-feed-style.css}">
 </head>
-<body>
-<div sec:authorize="isAuthenticated()">
-    <nav th:replace="partials :: loggedInNav"></nav>
-</div>
-
-
-</body>
+    <body>
+        <div sec:authorize="isAuthenticated()">
+            <nav th:replace="partials :: loggedInNav"></nav>
+        </div>
+        <div th:each="following : ${followed}">
+           <div th:each="post : ${following.getFollowedUser().getPosts()}">
+               <img style="height: 150px; width: 150px" th:src="${post.imageUrl}">
+               <p th:text="${post.description}"></p>
+               <h4 th:text="${post.user.username}"></h4>
+           </div>
+        </div>
+    </body>
 </html>
