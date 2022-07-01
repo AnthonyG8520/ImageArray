@@ -10,7 +10,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0px;
-    flex-basis: 100px;
+    flex-basis: 200px;
 }
 
 #loggedInNav nav{
