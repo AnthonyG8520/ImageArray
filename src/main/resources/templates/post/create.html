@@ -9,7 +9,6 @@
 <div sec:authorize="isAuthenticated()">
     <nav th:replace="partials :: loggedInNav"></nav>
 </div>
-<h1>form for creating a post</h1>
 <form th:action="@{/post/create}" method="post" th:object="${post}">
     <label for="url">Image</label>
     <input id="url" th:field="*{imageUrl}"><br>
