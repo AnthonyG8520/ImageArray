@@ -37,6 +37,7 @@ public class PostController {
 
     @GetMapping("/post/create")
     public String createPost(Model model){
+        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         model.addAttribute("post", new Post());
         return "post/create";
     }
@@ -46,7 +47,7 @@ public class PostController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         post.setUser(user);
         postDao.save(post);
-        return "redirect:/";
+        return "redirect:/feed/" + user.getId();
     }
 
     @GetMapping("/feed/{id}")
