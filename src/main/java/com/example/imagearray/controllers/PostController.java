@@ -47,7 +47,7 @@ public class PostController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         post.setUser(user);
         postDao.save(post);
-        return "redirect:/feed/" + user.getId();
+        return "redirect:/";
     }
 
     @GetMapping("/feed/{id}")
