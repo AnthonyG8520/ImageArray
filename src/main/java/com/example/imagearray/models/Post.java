@@ -2,6 +2,8 @@ package com.example.imagearray.models;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -13,8 +15,8 @@ public class Post {
     private String imageUrl;
     @Column(nullable = true)
     private String description;
-    @Column(nullable = false)
-    private Time date;
+    @Column(nullable = true)
+    private LocalDateTime date;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -54,6 +56,14 @@ public class Post {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 
     public User getUser() {
