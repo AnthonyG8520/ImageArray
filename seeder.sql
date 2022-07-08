@@ -1,0 +1,21 @@
+insert into users (email, password, profile_picture, username) values ('email1@mail.com', 'pass', 'https://www.facebook.com/randomimagesbr', 'user1');
+insert into users (email, password, profile_picture, username) values ('email2@mail.com', 'pass', 'https://lh3.googleusercontent.com/2hDpuTi-0AMKvoZJGd-yKWvK4tKdQr_kLIpB_qSeMau2TNGCNidAosMEvrEXFO9G6tmlFlPQplpwiqirgrIPWnCKMvElaYgI-HiVvXc=w600', 'user2');
+insert into users (email, password, profile_picture, username) values ('email3@mail.com', 'pass', 'https://pixabay.com/photos/drill-tool-hard-metal-industry-3702674/', 'user3');
+insert into users (email, password, profile_picture, username) values ('email4@mail.com', 'pass', 'https://randomwordgenerator.com/img/picture-generator/57e7dd474c50ad14f1dc8460962e33791c3ad6e04e5074417c2d78d1954cc7_640.jpg', 'user4');
+insert into users (email, password, profile_picture, username) values ('email5@mail.com', 'pass', 'https://randomwordgenerator.com/img/picture-generator/crazy-2764793_640.jpg', 'user5');
+
+insert into post (description, image_url, user_id) values ('awesome new picture', 'https://randomwordgenerator.com/img/picture-generator/5fe3d2464c4faa0df7c5d57bc32f3e7b1d3ac3e456597949732e7ad791_640.jpg', 1);
+insert into post (description, image_url, user_id) values ('sweetest picture', 'https://randomwordgenerator.com/img/picture-generator/52e0d4424f52aa14f1dc8460962e33791c3ad6e04e5074417d2c7ed1944dc3_640.jpg', 1);
+insert into post (description, image_url, user_id) values ('sick photo', 'https://randomwordgenerator.com/img/picture-generator/54e9d4444e55ae14f1dc8460962e33791c3ad6e04e5074417d2e72d2914ec3_640.jpg', 1);
+insert into post (description, image_url, user_id) values ('best photo ever', 'https://randomwordgenerator.com/img/picture-generator/54e8dd424b55ae14f1dc8460962e33791c3ad6e04e5074417c2f7dd6914fc3_640.jpg', 2);
+insert into post (description, image_url, user_id) values ('insane picture', 'https://randomwordgenerator.com/img/picture-generator/52e2d0424c55b10ff3d8992cc12c30771037dbf852547848702e7ed2964e_640.jpg', 2);
+insert into post (description, image_url, user_id) values ('losing my mind', 'https://randomwordgenerator.com/img/picture-generator/51e3d7444c52b10ff3d8992cc12c30771037dbf85254784e77267fd39f4d_640.jpg', 2);
+insert into post (description, image_url, user_id) values ('hello from outer space', 'https://randomwordgenerator.com/img/picture-generator/57e5d0424d54a814f1dc8460962e33791c3ad6e04e507440752972d29e4ec4_640.jpg', 3);
+insert into post (description, image_url, user_id) values ('theres a snake in my boot', 'https://randomwordgenerator.com/img/picture-generator/54e3d0424e56a414f1dc8460962e33791c3ad6e04e507441722a72dc9f4ecd_640.jpg', 3);
+insert into post (description, image_url, user_id) values ('is there anyone out there', 'https://randomwordgenerator.com/img/picture-generator/50e0d04a494faa0df7c5d57bc32f3e7b1d3ac3e45659794b7d287bd39f_640.jpg', 3);
+insert into post (description, image_url, user_id) values ('no more thought control', 'https://randomwordgenerator.com/img/picture-generator/52e3d54b4f57a514f1dc8460962e33791c3ad6e04e507440742a7ed19744c3_640.jpg', 4);
+insert into post (description, image_url, user_id) values ('I need a job', 'https://randomwordgenerator.com/img/picture-generator/5fe7d1424a51b10ff3d8992cc12c30771037dbf85254784a73287bd49148_640.jpg', 4);
+insert into post (description, image_url, user_id) values ('weigh the anchor', 'https://randomwordgenerator.com/img/picture-generator/54e5d2434953a514f1dc8460962e33791c3ad6e04e507440742f7cd09645cc_640.jpg', 4);
+insert into post (description, image_url, user_id) values ('how much did it weigh', 'https://randomwordgenerator.com/img/picture-generator/55e4d54a4c5aac14f1dc8460962e33791c3ad6e04e50744074267bd69f45c6_640.jpg', 5);
+insert into post (description, image_url, user_id) values ('i dont know I forgot', 'https://randomwordgenerator.com/img/picture-generator/54e5d44a4f57ad14f1dc8460962e33791c3ad6e04e507440752f72d6904dcd_640.jpg', 5);
+insert into post (description, image_url, user_id) values ('I saw that in a movie once', 'https://randomwordgenerator.com/img/picture-generator/54e0d4455754a809ea898279c02132761022dfe05b597040702e7dd5_640.jpg', 5);
