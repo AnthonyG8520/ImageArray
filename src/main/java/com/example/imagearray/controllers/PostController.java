@@ -52,6 +52,7 @@ public class PostController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         post.setUser(user);
         post.setDate(LocalDateTime.now());
+        System.out.println(post.getDate());
         postDao.save(post);
         return "redirect:/";
     }
