@@ -109,13 +109,4 @@ public class User {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
-
-    public List<Post> getAllFollowedUsersPosts(User user){
-        List<Post> followedposts = null;
-        for(UsersFollowed followed : user.getUsersFollowed()){
-            followedposts = followed.getFollowedUser().getPosts();
-        }
-        followedposts.sort();
-        return followedposts;
-    }
 }
