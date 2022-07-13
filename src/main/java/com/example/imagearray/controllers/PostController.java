@@ -33,7 +33,7 @@ public class PostController {
     @GetMapping("/")
     public String index(Model model){
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-        model.addAttribute("posts", postDao.findAll());
+        model.addAttribute("posts", postDao.findAllOrderByDate());
         return "post/index";
     }
 
@@ -69,16 +69,6 @@ public class PostController {
             ids += followed.getFollowedUser().getId() + ",";
         }
         model.addAttribute("followedUserPosts", postDao.getFollowedUserPostByTime(ids.substring(0, ids.length() -1)));
-
-        List<Post> posts = new ArrayList<>();
-        for(UsersFollowed followed : user.getUsersFollowed()){
-            for(Post p : postDao.getPostsByUserOrderByDateDesc(followed.getFollowedUser())){
-                posts.add(p);
-            }
-        }
-        for(Post p : posts){
-            System.out.println(p.getDescription());
-        }
         return "post/my-feed";
     }
 }
