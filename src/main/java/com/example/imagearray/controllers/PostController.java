@@ -2,6 +2,7 @@ package com.example.imagearray.controllers;
 
 import com.example.imagearray.models.Post;
 import com.example.imagearray.models.User;
+import com.example.imagearray.models.UsersFollowed;
 import com.example.imagearray.repositories.PostRepository;
 import com.example.imagearray.repositories.UserRepository;
 import org.apache.tomcat.jni.Time;
@@ -61,7 +62,12 @@ public class PostController {
     public String myFeed(@PathVariable Long id, Model model){
         User user = userDao.getById(id);
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-        model.addAttribute("followedUsers", user.getUsersFollowed());
+        String ids = "";
+        for(UsersFollowed followed : user.getUsersFollowed()){
+            ids += followed.getFollowedUser().getId() + ",";
+        }
+        model.addAttribute("followedUserPosts", postDao.getFollowedUserPostByTime(ids.substring(0, ids.length() -1)));
+        System.out.println(ids.substring(0, ids.length() -1));
         return "post/my-feed";
     }
 }
