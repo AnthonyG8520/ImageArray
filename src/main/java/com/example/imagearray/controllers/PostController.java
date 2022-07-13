@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class PostController {
@@ -67,7 +69,16 @@ public class PostController {
             ids += followed.getFollowedUser().getId() + ",";
         }
         model.addAttribute("followedUserPosts", postDao.getFollowedUserPostByTime(ids.substring(0, ids.length() -1)));
-        System.out.println(ids.substring(0, ids.length() -1));
+
+        List<Post> posts = new ArrayList<>();
+        for(UsersFollowed followed : user.getUsersFollowed()){
+            for(Post p : postDao.getPostsByUserOrderByDateDesc(followed.getFollowedUser())){
+                posts.add(p);
+            }
+        }
+        for(Post p : posts){
+            System.out.println(p.getDescription());
+        }
         return "post/my-feed";
     }
 }
