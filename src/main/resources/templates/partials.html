@@ -14,10 +14,10 @@
                 <a th:href="@{/post/create}">Post</a>
             </li>
             <li>
-                <a th:href="@{/feed/{id}(id=${user.getId()})}">My Feed</a>
+                <a th:href="@{/feed/{id}(id=${loggedUser.getId()})}">My Feed</a>
             </li>
             <li>
-                <a th:href="@{/profile/{id}(id=${user.getId()})}">Profile</a>
+                <a th:href="@{/profile/{id}(id=${loggedUser.getId()})}">Profile</a>
             </li>
             <li>
                 <form th:action="@{/logout}" th:method="post">

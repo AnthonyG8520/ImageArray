@@ -16,7 +16,7 @@
         <div th:each="post : ${posts}">
             <img style="height: 150px; width: 150px" th:src="${post.imageUrl}">
             <p th:text="${post.description}"></p>
-            <a th:href="@{/profile/{id}(id=${post.getUser().getId()})}"><span th:text="${post.user.username}"></span></a>
+            <a th:href="@{/view-user/{id}(id=${post.getUser().getId()})}"><span th:text="${post.user.username}"></span></a>
             <hr>
         </div>
     </body>

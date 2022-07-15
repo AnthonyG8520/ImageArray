@@ -32,7 +32,7 @@ public class PostController {
 
     @GetMapping("/")
     public String index(Model model){
-        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        model.addAttribute("loggedUser", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         model.addAttribute("posts", postDao.findAllOrderByDate());
         return "post/index";
     }
@@ -45,7 +45,7 @@ public class PostController {
 
     @GetMapping("/post/create")
     public String createPost(Model model){
-        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        model.addAttribute("loggedUser", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         model.addAttribute("post", new Post());
         return "post/create";
     }
@@ -63,7 +63,7 @@ public class PostController {
     @GetMapping("/feed/{id}")
     public String myFeed(@PathVariable Long id, Model model){
         User user = userDao.getById(id);
-        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        model.addAttribute("loggedUser", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         String ids = "";
         for(UsersFollowed followed : user.getUsersFollowed()){
             ids += followed.getFollowedUser().getId() + ",";
