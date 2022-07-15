@@ -44,9 +44,18 @@ public class UserController {
     @GetMapping("/profile/{id}")
     public String showProfile(@PathVariable Long id, Model model){
         User user = userDao.getById(id);
-        model.addAttribute("user", user);
+        model.addAttribute("loggedUser", user);
         model.addAttribute("posts", user.getPosts());
         return "user/profile";
+    }
+
+    @GetMapping("/view-user/{id}")
+    public String viewUser(@PathVariable Long id, Model model){
+        User user = userDao.getById(id);
+        model.addAttribute("loggedUser", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        model.addAttribute("user", user);
+        model.addAttribute("posts", user.getPosts());
+        return "user/view-user";
     }
 
     @PostMapping("/follow-user")
