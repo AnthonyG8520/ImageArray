@@ -12,6 +12,10 @@
         <div>
             <h1 th:text="${user.username}"></h1>
             <img id="profilePic" th:src="${user.profilePicture}">
+            <form th:action="@{/follow-user}" method="post">
+                <input type="hidden" name="followedUserId" th:value="${user.id}">
+                <button type="submit">Follow</button>
+            </form>
         </div>
         <hr>
         <div>

@@ -8,10 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UserController {
@@ -23,6 +20,11 @@ public class UserController {
         this.userDao = userDao;
         this.usersFollowedDao = usersFollowedDao;
         this.passwordEncoder = passwordEncoder;
+    }
+
+    @GetMapping("/login")
+    public String showLoginForm() {
+        return "user/login";
     }
 
     @GetMapping("/sign-up")
@@ -39,16 +41,19 @@ public class UserController {
         return "redirect:/login";
     }
 
-    @GetMapping("/login")
-    public String showLoginForm() {
-        return "user/login";
-    }
-
     @GetMapping("/profile/{id}")
     public String showProfile(@PathVariable Long id, Model model){
         User user = userDao.getById(id);
         model.addAttribute("user", user);
         model.addAttribute("posts", user.getPosts());
         return "user/profile";
+    }
+
+    @PostMapping("/follow-user")
+    public String followUser(@RequestParam Long followedUserId){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User followedUser = userDao.getById(followedUserId);
+        usersFollowedDao.save(new UsersFollowed(user, followedUser));
+        return "redirect:/profile/" + followedUser.getId();
     }
 }
