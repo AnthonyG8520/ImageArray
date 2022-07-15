@@ -22,6 +22,11 @@ public class UsersFollowed {
         this.followedUser = followedUser;
     }
 
+    public UsersFollowed(User user, User followedUser){
+        this.user = user;
+        this.followedUser = followedUser;
+    }
+
     public long getId() {
         return id;
     }
