@@ -1,0 +1,17 @@
+/*nav when logged in start*/
+#loggedInNav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px;
+    flex-basis: 200px;
+}
+
+#loggedInNav nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+/*nav when logged in end*/

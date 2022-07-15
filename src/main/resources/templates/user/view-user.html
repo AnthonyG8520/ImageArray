@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${user.username}"></title>
+    <link rel="stylesheet" th:href="@{/view-user-style.css}">
+</head>
+<body>
+    <div sec:authorize="isAuthenticated()">
+        <nav th:replace="partials :: loggedInNav"></nav>
+    </div>
+    <div>
+        <h1 th:text="${user.username}"></h1>
+        <img id="profilePic" th:src="${user.profilePicture}">
+        <form th:action="@{/follow-user}" method="post">
+            <input type="hidden" name="followedUserId" th:value="${user.id}">
+            <button type="submit">Follow</button>
+        </form>
+    </div>
+    <hr>
+    <div>
+        <div th:each="post : ${posts}">
+            <img style="height: 150px; width: 150px" th:src="${post.imageUrl}">
+            <p th:text="${post.description}"></p>
+            <h4 th:text="${post.user.username}"></h4>
+            <hr>
+        </div>
+    </div>
+</body>
+</html>
