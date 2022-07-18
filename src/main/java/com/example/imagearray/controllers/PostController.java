@@ -64,11 +64,13 @@ public class PostController {
     public String myFeed(@PathVariable Long id, Model model){
         User user = userDao.getById(id);
         model.addAttribute("loggedUser", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-        String ids = "";
+        List<Long> ids = new ArrayList<Long>();
         for(UsersFollowed followed : user.getUsersFollowed()){
-            ids += followed.getFollowedUser().getId() + ",";
+            ids.add(followed.getFollowedUser().getId());
         }
-        model.addAttribute("followedUserPosts", postDao.getFollowedUserPostByTime(ids.substring(0, ids.length() -1)));
+        model.addAttribute("followedUserPosts", postDao.getFollowedUserPostByTime(ids));
         return "post/my-feed";
     }
+
+
 }
