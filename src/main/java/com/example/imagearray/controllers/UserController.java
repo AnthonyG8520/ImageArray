@@ -54,7 +54,6 @@ public class UserController {
         User user = userDao.getById(id);
         User loggedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         UsersFollowed checkIfFollowed = usersFollowedDao.getByFollowedUserAndUser(user, loggedUser);
-        System.out.println(checkIfFollowed);
         model.addAttribute("checkIfFollowed", checkIfFollowed);
         model.addAttribute("loggedUser", loggedUser);
         model.addAttribute("user", user);
