@@ -65,4 +65,12 @@ public class UserController {
         usersFollowedDao.save(new UsersFollowed(user, followedUser));
         return "redirect:/profile/" + followedUser.getId();
     }
+
+    @PostMapping("/unfollow-user")
+    public String unfolloweUser(@RequestParam Long followedUserId){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UsersFollowed followedUser = usersFollowedDao.getByFollowedUserId(followedUserId);
+        usersFollowedDao.delete(followedUser);
+        return"redirect:/profile/" + followedUserId;
+    }
 }
