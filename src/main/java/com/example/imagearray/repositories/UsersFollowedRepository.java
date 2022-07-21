@@ -5,5 +5,5 @@ import com.example.imagearray.models.UsersFollowed;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UsersFollowedRepository extends JpaRepository<UsersFollowed, Long> {
-    UsersFollowed getByFollowedUserAndUser(User user, User followedUser);
+    UsersFollowed getByFollowedUserAndUser(User followedUser, User User);
 }

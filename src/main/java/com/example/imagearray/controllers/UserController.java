@@ -52,7 +52,11 @@ public class UserController {
     @GetMapping("/view-user/{id}")
     public String viewUser(@PathVariable Long id, Model model){
         User user = userDao.getById(id);
-        model.addAttribute("loggedUser", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        User loggedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UsersFollowed checkIfFollowed = usersFollowedDao.getByFollowedUserAndUser(user, loggedUser);
+        System.out.println(checkIfFollowed);
+        model.addAttribute("checkIfFollowed", checkIfFollowed);
+        model.addAttribute("loggedUser", loggedUser);
         model.addAttribute("user", user);
         model.addAttribute("posts", user.getPosts());
         return "user/view-user";
@@ -70,7 +74,7 @@ public class UserController {
     public String unfolloweUser(@RequestParam Long followedUserId){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userToUnfollow = userDao.getById(followedUserId);
-        UsersFollowed followedUser = usersFollowedDao.getByFollowedUserAndUser(user, userToUnfollow);
+        UsersFollowed followedUser = usersFollowedDao.getByFollowedUserAndUser(userToUnfollow, user);
         usersFollowedDao.delete(followedUser);
         return"redirect:/profile/" + followedUserId;
     }
