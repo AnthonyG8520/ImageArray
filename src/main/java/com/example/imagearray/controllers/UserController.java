@@ -67,7 +67,7 @@ public class UserController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User followedUser = userDao.getById(followedUserId);
         usersFollowedDao.save(new UsersFollowed(user, followedUser));
-        return "redirect:/profile/" + followedUser.getId();
+        return "redirect:/view-user/" + followedUserId;
     }
 
     @PostMapping("/unfollow-user")
@@ -76,6 +76,6 @@ public class UserController {
         User userToUnfollow = userDao.getById(followedUserId);
         UsersFollowed followedUser = usersFollowedDao.getByFollowedUserAndUser(userToUnfollow, user);
         usersFollowedDao.delete(followedUser);
-        return"redirect:/profile/" + followedUserId;
+        return"redirect:/view-user/" + followedUserId;
     }
 }

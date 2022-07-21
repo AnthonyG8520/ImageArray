@@ -16,7 +16,7 @@
             <input type="hidden" name="followedUserId" th:value="${user.id}">
             <button type="submit">Follow</button>
         </form>
-        <form th:if="${checkIfFollowed} == !null" th:action="@{/unfollow-user}" method="post">
+        <form th:if="${checkIfFollowed}" th:action="@{/unfollow-user}" method="post">
             <input type="hidden" name="followedUserId" th:value="${user.id}">
             <button type="submit">Unfollow</button>
         </form>
