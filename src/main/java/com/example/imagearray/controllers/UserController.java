@@ -70,7 +70,7 @@ public class UserController {
     }
 
     @PostMapping("/unfollow-user")
-    public String unfolloweUser(@RequestParam Long followedUserId){
+    public String unfollowUser(@RequestParam Long followedUserId){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userToUnfollow = userDao.getById(followedUserId);
         UsersFollowed followedUser = usersFollowedDao.getByFollowedUserAndUser(userToUnfollow, user);
