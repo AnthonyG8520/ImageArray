@@ -1,7 +1,9 @@
 package com.example.imagearray.controllers;
 
+import com.example.imagearray.models.Post;
 import com.example.imagearray.models.User;
 import com.example.imagearray.models.UsersFollowed;
+import com.example.imagearray.repositories.PostRepository;
 import com.example.imagearray.repositories.UserRepository;
 import com.example.imagearray.repositories.UsersFollowedRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,11 +15,13 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class UserController {
     private final UserRepository userDao;
+    private final PostRepository postDao;
     private final UsersFollowedRepository usersFollowedDao;
     private PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepository userDao,UsersFollowedRepository usersFollowedDao ,PasswordEncoder passwordEncoder){
+    public UserController(UserRepository userDao, PostRepository postDao, UsersFollowedRepository usersFollowedDao, PasswordEncoder passwordEncoder){
         this.userDao = userDao;
+        this.postDao = postDao;
         this.usersFollowedDao = usersFollowedDao;
         this.passwordEncoder = passwordEncoder;
     }
@@ -45,7 +49,7 @@ public class UserController {
     public String showProfile(@PathVariable Long id, Model model){
         User user = userDao.getById(id);
         model.addAttribute("loggedUser", user);
-        model.addAttribute("posts", user.getPosts());
+        model.addAttribute("posts", postDao.getUsersPostsByTime(id));
         return "user/profile";
     }
 
