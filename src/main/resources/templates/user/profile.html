@@ -16,9 +16,15 @@
         <hr>
         <div>
             <div th:each="post : ${posts}">
+                <form th:action="@{/post/delete}" method="post">
+                    <input type="hidden" th:value="${post.id}" name="postId">
+                    <input type="hidden" th:value="${post.user.id}" name="userId">
+                    <button type="submit">Delete</button>
+                </form>
                 <img style="height: 150px; width: 150px" th:src="${post.imageUrl}">
-                <p th:text="${post.description}"></p>
                 <h4 th:text="${post.user.username}"></h4>
+                <p th:text="${post.description}"></p>
+
                 <hr>
             </div>
         </div>
