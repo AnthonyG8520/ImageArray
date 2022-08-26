@@ -61,23 +61,23 @@ public class UserController {
         model.addAttribute("checkIfFollowed", checkIfFollowed);
         model.addAttribute("loggedUser", loggedUser);
         model.addAttribute("user", user);
-        model.addAttribute("posts", user.getPosts());
+        model.addAttribute("posts", postDao.getUsersPostsByTime(id));
         return "user/view-user";
     }
 
     @PostMapping("/follow-user")
     public String followUser(@RequestParam Long followedUserId){
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User loggedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User followedUser = userDao.getById(followedUserId);
-        usersFollowedDao.save(new UsersFollowed(user, followedUser));
+        usersFollowedDao.save(new UsersFollowed(loggedUser, followedUser));
         return "redirect:/view-user/" + followedUserId;
     }
 
     @PostMapping("/unfollow-user")
     public String unfollowUser(@RequestParam Long followedUserId){
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User loggedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userToUnfollow = userDao.getById(followedUserId);
-        UsersFollowed followedUser = usersFollowedDao.getByFollowedUserAndUser(userToUnfollow, user);
+        UsersFollowed followedUser = usersFollowedDao.getByFollowedUserAndUser(userToUnfollow, loggedUser);
         usersFollowedDao.delete(followedUser);
         return"redirect:/view-user/" + followedUserId;
     }
