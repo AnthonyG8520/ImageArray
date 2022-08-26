@@ -9,10 +9,7 @@ import org.apache.tomcat.jni.Time;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -58,6 +55,12 @@ public class PostController {
         System.out.println(post.getDate());
         postDao.save(post);
         return "redirect:/";
+    }
+
+    @PostMapping("/post/delete")
+    public String deletePost(@RequestParam Long postId, @RequestParam Long userId){
+        postDao.deleteById(postId);
+        return "redirect:/profile/" + userId;
     }
 
     @GetMapping("/feed/{id}")
