@@ -26,6 +26,18 @@ insert into post (description, image_url, user_id) values ('how much did it weig
 insert into post (description, image_url, user_id) values ('i dont know I forgot', 'https://randomwordgenerator.com/img/picture-generator/54e5d44a4f57ad14f1dc8460962e33791c3ad6e04e507440752f72d6904dcd_640.jpg', 5);
 insert into post (description, image_url, user_id) values ('I saw that in a movie once', 'https://randomwordgenerator.com/img/picture-generator/54e0d4455754a809ea898279c02132761022dfe05b597040702e7dd5_640.jpg', 5);
 
+insert into post (description, image_url, user_id) values ('sweetest photo', 'https://pixabay.com/photos/sunset-tree-dawn-sun-nature-dusk-3156440/', 1);
+insert into post (description, image_url, user_id) values ('bestest photo', 'https://pixabay.com/photos/rabbit-cartoon-beach-sand-drawing-1664927/', 1);
+insert into post (description, image_url, user_id) values ('greatest photo', 'https://pixabay.com/photos/blue-beach-surf-travel-surfer-4145659/', 2);
+insert into post (description, image_url, user_id) values ('awesomest photo', 'https://pixabay.com/photos/antietam-maryland-cannon-140321/', 2);
+insert into post (description, image_url, user_id) values ('coolest photo', 'https://pixabay.com/illustrations/bacteria-virus-bacterial-species-106583/', 3);
+insert into post (description, image_url, user_id) values ('funniest photo', 'https://pixabay.com/photos/ball-hot-air-ballooning-sky-windbag-1804467/', 3);
+insert into post (description, image_url, user_id) values ('dumbest photo', 'https://pixabay.com/photos/balance-background-harmony-stacked-3356547/', 4);
+insert into post (description, image_url, user_id) values ('weirdest photo', 'https://pixabay.com/photos/flooded-disaster-flooding-flood-491245/', 4);
+insert into post (description, image_url, user_id) values ('craziest photo', 'https://pixabay.com/photos/sculpture-sand-sand-sculpture-70271/', 5);
+insert into post (description, image_url, user_id) values ('legitest photo', 'https://pixabay.com/illustrations/composing-ice-planet-3d-rendering-2288442/', 5);
+
+
 insert into comment (text, post_id, user_id) values ('this is cool', 1, 5);
 insert into comment (text, post_id, user_id) values ('this is cool', 2, 5);
 insert into comment (text, post_id, user_id) values ('this is cool', 3, 5);
