@@ -26,16 +26,16 @@ insert into post (description, image_url, user_id) values ('how much did it weig
 insert into post (description, image_url, user_id) values ('i dont know I forgot', 'https://randomwordgenerator.com/img/picture-generator/54e5d44a4f57ad14f1dc8460962e33791c3ad6e04e507440752f72d6904dcd_640.jpg', 5);
 insert into post (description, image_url, user_id) values ('I saw that in a movie once', 'https://randomwordgenerator.com/img/picture-generator/54e0d4455754a809ea898279c02132761022dfe05b597040702e7dd5_640.jpg', 5);
 
-insert into post (description, image_url, user_id) values ('sweetest photo', 'https://pixabay.com/photos/sunset-tree-dawn-sun-nature-dusk-3156440/', 1);
-insert into post (description, image_url, user_id) values ('bestest photo', 'https://pixabay.com/photos/rabbit-cartoon-beach-sand-drawing-1664927/', 1);
-insert into post (description, image_url, user_id) values ('greatest photo', 'https://pixabay.com/photos/blue-beach-surf-travel-surfer-4145659/', 2);
-insert into post (description, image_url, user_id) values ('awesomest photo', 'https://pixabay.com/photos/antietam-maryland-cannon-140321/', 2);
-insert into post (description, image_url, user_id) values ('coolest photo', 'https://pixabay.com/illustrations/bacteria-virus-bacterial-species-106583/', 3);
-insert into post (description, image_url, user_id) values ('funniest photo', 'https://pixabay.com/photos/ball-hot-air-ballooning-sky-windbag-1804467/', 3);
-insert into post (description, image_url, user_id) values ('dumbest photo', 'https://pixabay.com/photos/balance-background-harmony-stacked-3356547/', 4);
-insert into post (description, image_url, user_id) values ('weirdest photo', 'https://pixabay.com/photos/flooded-disaster-flooding-flood-491245/', 4);
-insert into post (description, image_url, user_id) values ('craziest photo', 'https://pixabay.com/photos/sculpture-sand-sand-sculpture-70271/', 5);
-insert into post (description, image_url, user_id) values ('legitest photo', 'https://pixabay.com/illustrations/composing-ice-planet-3d-rendering-2288442/', 5);
+insert into post (description, image_url, user_id) values ('sweetest photo', 'https://cdn.pixabay.com/photo/2018/02/15/21/55/sunset-3156440_960_720.jpg', 1);
+insert into post (description, image_url, user_id) values ('bestest photo', 'https://cdn.pixabay.com/photo/2016/09/12/15/36/rabbit-1664927_960_720.jpg', 1);
+insert into post (description, image_url, user_id) values ('greatest photo', 'https://cdn.pixabay.com/photo/2019/04/22/04/32/blue-4145659_960_720.jpg', 2);
+insert into post (description, image_url, user_id) values ('awesomest photo', 'https://cdn.pixabay.com/photo/2013/06/20/16/12/antietam-140321_960_720.jpg', 2);
+insert into post (description, image_url, user_id) values ('coolest photo', 'https://cdn.pixabay.com/photo/2013/04/23/07/08/bacteria-106583_960_720.jpg', 3);
+insert into post (description, image_url, user_id) values ('funniest photo', 'https://cdn.pixabay.com/photo/2016/11/06/23/43/ball-1804467_960_720.jpg', 3);
+insert into post (description, image_url, user_id) values ('dumbest photo', 'https://cdn.pixabay.com/photo/2018/04/28/03/47/balance-3356547_960_720.jpg', 4);
+insert into post (description, image_url, user_id) values ('weirdest photo', 'https://cdn.pixabay.com/photo/2014/10/16/14/51/flooded-491245_960_720.jpg', 4);
+insert into post (description, image_url, user_id) values ('craziest photo', 'https://cdn.pixabay.com/photo/2012/12/17/11/15/sculpture-70271_960_720.jpg', 5);
+insert into post (description, image_url, user_id) values ('legitest photo', 'https://cdn.pixabay.com/photo/2017/05/05/22/43/composing-2288442_960_720.jpg', 5);
 
 
 insert into comment (text, post_id, user_id) values ('this is cool', 1, 5);
