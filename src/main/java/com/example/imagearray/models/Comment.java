@@ -27,6 +27,12 @@ public class Comment {
         this.user = user;
     }
 
+    public Comment(String text, Post post, User user){
+        this.text = text;
+        this.post = post;
+        this.user = user;
+    }
+
     public long getId() {
         return id;
     }
