@@ -36,6 +36,7 @@ public class PostController {
 
     @GetMapping("/post/{id}")
     public String showPost(@PathVariable Long id, Model model){
+        model.addAttribute("loggedUser", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         model.addAttribute("post", postDao.getById(id));
         return "post/individual";
     }
