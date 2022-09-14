@@ -18,6 +18,9 @@
             <p th:text="${post.description}"></p>
             <a th:href="@{/view-user/{id}(id=${post.getUser().getId()})}"><span th:text="${post.user.username}"></span></a>
             <h4>Comments</h4>
+            <div sec:authorize="!isAuthenticated()">
+                <button id="commentButton">Comment</button>
+            </div>
             <div sec:authorize="isAuthenticated()">
                 <form th:action="@{/comment/create}" method="post">
                     <input type="hidden" name="postId" th:value="${post.id}">
@@ -31,5 +34,11 @@
             </div>
             <hr>
         </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script>
+            $('#commentButton').click(function(){
+                alert("You must be logged in to leave a comment!")
+            })
+        </script>
     </body>
 </html>
