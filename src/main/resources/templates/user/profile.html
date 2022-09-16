@@ -21,7 +21,7 @@
                     <input type="hidden" th:value="${post.user.id}" name="userId">
                     <button type="submit">Delete</button>
                 </form>
-                <img style="height: 150px; width: 150px" th:src="${post.imageUrl}">
+                <a th:href="@{/post/{id}(id=${post.id})}"><img style="height: 150px; width: 150px" th:src="${post.imageUrl}"></a>
                 <h4 th:text="${post.user.username}"></h4>
                 <p th:text="${post.description}"></p>
                 <h4>Comments</h4>
