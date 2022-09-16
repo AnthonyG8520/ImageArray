@@ -24,7 +24,7 @@
     <hr>
     <div>
         <div th:each="post : ${posts}">
-            <img style="height: 150px; width: 150px" th:src="${post.imageUrl}">
+            <a th:href="@{/post/{id}(id=${post.id})}"><img style="height: 150px; width: 150px" th:src="${post.imageUrl}"></a>
             <p th:text="${post.description}"></p>
             <h4 th:text="${post.user.username}"></h4>
             <h4>Comments</h4>
