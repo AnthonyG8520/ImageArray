@@ -10,7 +10,7 @@
             <nav th:replace="partials :: loggedInNav"></nav>
         </div>
         <div th:each="post : ${followedUserPosts}">
-            <img style="height: 150px; width: 150px" th:src="${post.imageUrl}">
+            <a th:href="@{/post/{id}(id=${post.id})}"><img style="height: 150px; width: 150px" th:src="${post.imageUrl}"></a>
             <p th:text="${post.description}"></p>
             <a th:href="@{/view-user/{id}(id=${post.getUser().getId()})}"><span th:text="${post.user.username}"></span></a>
             <h4>Comments</h4>
