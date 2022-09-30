@@ -15,7 +15,8 @@
         <h1>Explore</h1>
         <div th:each="post : ${posts}">
             <div class="photoContainer">
-                <img class="postPhoto" style="height: 150px; width: 150px" th:src="${post.imageUrl}">
+                <img sec:authorize="!isAuthenticated()" class="notLoggedInPostPhoto" style="height: 150px; width: 150px" th:src="${post.imageUrl}">
+                <img sec:authorize="isAuthenticated()" style="height: 150px; width: 150px" th:src="${post.imageUrl}">
             </div>
             <p th:text="${post.description}"></p>
             <a th:href="@{/view-user/{id}(id=${post.getUser().getId()})}"><span th:text="${post.user.username}"></span></a>
@@ -42,7 +43,7 @@
                 alert("You must be logged in to leave a comment!")
             })
 
-            $('.postPhoto').click(function(){
+            $('.notLoggedInPostPhoto').click(function(){
                 $(this).parent().append('<div class="tooltipBox"><p class="tooltipText">Create an account to view images</p></div>')
                 setTimeout(function(){
                     $('.tooltipBox').remove()
