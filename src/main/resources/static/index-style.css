@@ -38,7 +38,12 @@
     position: relative;
 }
 
+.remove{
+    opacity: 0;
+}
+
 .tooltipBox{
+    transition: opacity 2s;
     position: absolute;
     left: 90px;
     top: 10px;
