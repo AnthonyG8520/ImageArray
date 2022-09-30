@@ -33,3 +33,22 @@
     padding: 0 20px;
 }
 /*nav when logged in end*/
+
+.photoContainer{
+    position: relative;
+}
+
+.tooltipBox{
+    position: absolute;
+    left: 90px;
+    top: 10px;
+    background-color: darkgrey;
+    display: inline-block;
+    padding: 5px;
+    border: 5px solid darkgrey;
+    border-radius: 10px;
+}
+
+.tooltipText{
+    margin: 0;
+}
