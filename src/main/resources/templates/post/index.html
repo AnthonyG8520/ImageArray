@@ -46,8 +46,11 @@
             $('.notLoggedInPostPhoto').click(function(){
                 $(this).parent().append('<div class="tooltipBox"><p class="tooltipText">Create an account to view images</p></div>')
                 setTimeout(function(){
-                    $('.tooltipBox').remove()
+                    $('.tooltipBox').addClass('remove')
                 },3000)
+                setTimeout(function(){
+                    $('.tooltipBox').remove()
+                },5000)
             })
         </script>
     </body>
