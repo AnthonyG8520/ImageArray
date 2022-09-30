@@ -14,7 +14,9 @@
         </div>
         <h1>Explore</h1>
         <div th:each="post : ${posts}">
-            <img id="postPhoto" style="height: 150px; width: 150px" th:src="${post.imageUrl}">
+            <div class="photoContainer">
+                <img class="postPhoto" style="height: 150px; width: 150px" th:src="${post.imageUrl}">
+            </div>
             <p th:text="${post.description}"></p>
             <a th:href="@{/view-user/{id}(id=${post.getUser().getId()})}"><span th:text="${post.user.username}"></span></a>
             <h4>Comments</h4>
@@ -40,11 +42,11 @@
                 alert("You must be logged in to leave a comment!")
             })
 
-            $('#postPhoto').click(function(){
-                $(this).parent().append('<p id="helperText">Create an account to view images</p>')
+            $('.postPhoto').click(function(){
+                $(this).parent().append('<div class="tooltipBox"><p class="tooltipText">Create an account to view images</p></div>')
                 setTimeout(function(){
-                    $('#helperText').remove()
-                },5000)
+                    $('.tooltipBox').remove()
+                },3000)
             })
         </script>
     </body>
