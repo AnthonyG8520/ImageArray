@@ -34,6 +34,7 @@
 }
 /*nav when logged in end*/
 
+/*tooltip when photo on post is clicked ans no user logged in      start*/
 .photoContainer{
     position: relative;
 }
@@ -56,4 +57,15 @@
 
 .tooltipText{
     margin: 0;
+}
+/*tooltip when photo on post is clicked ans no user logged in      end*/
+
+#postContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.post{
+    flex-basis: 200px;
 }
