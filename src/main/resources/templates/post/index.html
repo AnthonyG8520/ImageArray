@@ -19,9 +19,7 @@
                     <img sec:authorize="!isAuthenticated()" class="notLoggedInPostPhoto" style="height: 150px; width: 150px" th:src="${post.imageUrl}">
                     <img sec:authorize="isAuthenticated()" style="height: 150px; width: 150px" th:src="${post.imageUrl}">
                 </div>
-                <p th:text="${post.description}"></p>
                 <a th:href="@{/view-user/{id}(id=${post.getUser().getId()})}"><span th:text="${post.user.username}"></span></a>
-                <h4>Comments</h4>
                 <div sec:authorize="!isAuthenticated()">
                     <button id="commentButton">Comment</button>
                 </div>
@@ -31,10 +29,6 @@
                         <textarea name="text" cols="30" rows="1" required></textarea>
                         <button type="submit">Comment</button>
                     </form>
-                </div>
-                <div th:each="comment : ${post.getComments()}">
-                    <a th:href="@{/view-user/{id}(id=${comment.user.id})}"><span th:text="${comment.user.username}"></span></a>
-                    <p th:text="${comment.text}"></p>
                 </div>
                 <hr>
             </div>
