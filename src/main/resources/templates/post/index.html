@@ -12,6 +12,7 @@
         <div sec:authorize="isAuthenticated()">
             <nav th:replace="partials :: loggedInNav"></nav>
         </div>
+        <textarea id="box1">focus here</textarea>
         <h1>Explore</h1>
         <div id="postContainer">
             <div class="post" th:each="post : ${posts}">
@@ -35,8 +36,16 @@
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script>
+            // $('.commentButton').click(function(){
+            //     alert("You must be logged in to leave a comment!")
+            // })
+
+            $(document).ready(function(){
+                $('#box1').focus()
+            })
+
             $('.commentButton').click(function(){
-                alert("You must be logged in to leave a comment!")
+                $('#box1').focus()
             })
 
             $('.notLoggedInPostPhoto').click(function(){
