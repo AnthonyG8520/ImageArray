@@ -48,6 +48,22 @@ public class PostController {
         return "post/individual";
     }
 
+    @GetMapping("/postC/{id}")
+    public String ShowPostC(@PathVariable Long id, Model model){
+        // this mapping is used for moving focus to comment box on individual post when coming from a view where the comment button was clicked
+        boolean userIsOwner = false;
+        User loggedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Post post = postDao.getById(id);
+        if(userDao.getById(loggedUser.getId()) == post.getUser()){
+            userIsOwner = true;
+        }
+        model.addAttribute("isCommenting", true);
+        model.addAttribute("userIsOwner", userIsOwner);
+        model.addAttribute("loggedUser", loggedUser);
+        model.addAttribute("post", post);
+        return "post/individual";
+    }
+
     @GetMapping("/post/create")
     public String createPost(Model model){
         model.addAttribute("loggedUser", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
