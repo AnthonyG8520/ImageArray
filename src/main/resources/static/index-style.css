@@ -60,6 +60,7 @@
 }
 /*tooltip when photo on post is clicked ans no user logged in      end*/
 
+/*contains all posts - display setting for entire container    start*/
 #postContainer{
     display: flex;
     flex-wrap: wrap;
@@ -69,3 +70,20 @@
 .post{
     flex-basis: 200px;
 }
+/*contains all posts - display setting for entire container    end*/
+
+/*options bar on each post     start*/
+.postOptionsBar{
+    display: flex;
+}
+/*options bar on each post     end*/
+
+
+
+
+
+
+
+
+
+
