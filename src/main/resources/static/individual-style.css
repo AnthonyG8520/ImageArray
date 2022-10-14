@@ -33,3 +33,34 @@
     padding: 0 20px;
 }
 /*nav when logged in end*/
+
+/*post container style       start*/
+#postContainer{
+    text-align: center;
+    margin: 0 400px;
+}
+
+#postNameAndCaption{
+    padding-right: 200px;
+}
+
+#postNameAndCaption h4{
+    display: inline-block;
+    margin-right: 15px;
+}
+
+#postNameAndCaption p{
+    display: inline-block;
+}
+
+
+
+/*post container style      end*/
+
+
+
+
+
+
+
+

@@ -13,15 +13,17 @@
             <nav th:replace="partials :: loggedInNav"></nav>
         </div>
         <h1>individual post</h1>
-        <div>
+        <div id="postContainer">
             <form th:if="${userIsOwner}" th:action="@{/post/delete}" method="post">
                 <input type="hidden" th:value="${post.id}" name="postId">
                 <input type="hidden" th:value="${post.user.id}" name="userId">
                 <button type="submit">Delete</button>
             </form>
-            <img style="height: 150px; width: 150px" th:src="${post.imageUrl}">
-            <h4 th:text="${post.user.username}"></h4>
-            <p th:text="${post.description}"></p>
+            <img style="height: 400px; width: 400px" th:src="${post.imageUrl}">
+            <div id="postNameAndCaption">
+                <h4 th:text="${post.user.username}"></h4>
+                <p th:text="${post.description}"></p>
+            </div>
             <h4>Comments</h4>
             <div>
                 <form th:action="@{/comment/create}" method="post">
