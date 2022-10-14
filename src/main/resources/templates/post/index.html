@@ -16,8 +16,8 @@
         <div id="postContainer">
             <div class="post" th:each="post : ${posts}">
                 <div class="photoContainer">
-                    <img sec:authorize="!isAuthenticated()" class="notLoggedInPostPhoto" style="height: 150px; width: 150px" th:src="${post.imageUrl}">
-                    <img sec:authorize="isAuthenticated()" style="height: 150px; width: 150px" th:src="${post.imageUrl}">
+                    <img sec:authorize="!isAuthenticated()" class="notLoggedInPostPhoto" style="height: 200px; width: 280px" th:src="${post.imageUrl}">
+                    <img sec:authorize="isAuthenticated()" style="height: 200px; width: 280px" th:src="${post.imageUrl}">
                 </div>
                 <div class="postOptionsBar">
                     <a th:href="@{/view-user/{id}(id=${post.getUser().getId()})}"><img style="height: 30px" src="/img/personIcon.png"></a>
@@ -33,7 +33,6 @@
                         <!--                    </form>-->
                     </div>
                 </div>
-                <hr>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

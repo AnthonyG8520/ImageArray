@@ -34,6 +34,10 @@
 }
 /*nav when logged in end*/
 
+body{
+    background: whitesmoke;
+}
+
 /*tooltip when photo on post is clicked ans no user logged in      start*/
 .photoContainer{
     position: relative;
@@ -62,19 +66,23 @@
 
 /*contains all posts - display setting for entire container    start*/
 #postContainer{
+    padding: 0 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
 .post{
-    flex-basis: 200px;
+    background: white;
+    margin: 20px 0;
 }
 /*contains all posts - display setting for entire container    end*/
 
 /*options bar on each post     start*/
 .postOptionsBar{
+    padding: 0 40px;
     display: flex;
+    justify-content: space-evenly;
 }
 /*options bar on each post     end*/
 
