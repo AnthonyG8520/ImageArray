@@ -34,10 +34,15 @@
 }
 /*nav when logged in end*/
 
+body{
+    background: whitesmoke;
+}
+
 /*post container style       start*/
 #postContainer{
+    background: white;
     margin: 0 400px;
-    padding: 0 340px;
+    padding: 20px 340px;
 }
 
 #postNameAndCaption{
