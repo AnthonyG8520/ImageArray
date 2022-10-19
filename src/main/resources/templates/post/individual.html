@@ -12,7 +12,6 @@
         <div sec:authorize="isAuthenticated()">
             <nav th:replace="partials :: loggedInNav"></nav>
         </div>
-        <h1>individual post</h1>
         <div id="postContainer">
             <form th:if="${userIsOwner}" th:action="@{/post/delete}" method="post">
                 <input type="hidden" th:value="${post.id}" name="postId">
