@@ -43,7 +43,7 @@ body{
     position: relative;
 }
 
-.remove{
+.removeToFade{
     opacity: 0;
 }
 
