@@ -88,6 +88,10 @@ body{
 .commentButton:hover{
     cursor: pointer;
 }
+
+.viewUserButton:hover{
+    cursor: pointer;
+}
 /*options bar on each post     end*/
 
 /*setting cursor for not logged in post photos      start*/
