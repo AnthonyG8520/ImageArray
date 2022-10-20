@@ -38,6 +38,10 @@
                 alert("You must be logged in to leave a comment!")
             })
 
+            $('.viewUserButton').click(function(){
+                alert("You must be logged in to view profiles!")
+            })
+
             $('.notLoggedInPostPhoto').click(function(){
                 $(this).parent().append('<div class="tooltipBox"><p class="tooltipText">Create an account to view images</p></div>')
                 setTimeout(function(){
