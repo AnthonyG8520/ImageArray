@@ -84,7 +84,20 @@ body{
     display: flex;
     justify-content: space-evenly;
 }
+
+.commentButton:hover{
+    cursor: pointer;
+}
 /*options bar on each post     end*/
+
+/*setting cursor for not logged in post photos      start*/
+.notLoggedInPostPhoto:hover{
+    cursor: pointer;
+}
+
+
+
+/*setting cursor for not logged in post photos      end*/
 
 
 
