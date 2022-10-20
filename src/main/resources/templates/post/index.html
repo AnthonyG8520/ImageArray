@@ -17,12 +17,12 @@
             <div class="post" th:each="post : ${posts}">
                 <div class="photoContainer">
                     <img sec:authorize="!isAuthenticated()" class="notLoggedInPostPhoto" style="height: 200px; width: 280px" th:src="${post.imageUrl}">
-                    <img sec:authorize="isAuthenticated()" style="height: 200px; width: 280px" th:src="${post.imageUrl}">
+                    <a th:href="@{/post/{id}(id=${post.id})}" sec:authorize="isAuthenticated()"><img style="height: 200px; width: 280px" th:src="${post.imageUrl}"></a>
                 </div>
                 <div class="postOptionsBar">
                     <a th:href="@{/view-user/{id}(id=${post.getUser().getId()})}"><img style="height: 30px" src="/img/personIcon.png"></a>
                     <div sec:authorize="!isAuthenticated()">
-                        <a href=""><img class="commentButton" style="height: 30px" src="/img/commentBubble.png"></a>
+                        <img class="commentButton" style="height: 30px" src="/img/commentBubble.png">
                     </div>
                     <div sec:authorize="isAuthenticated()">
                         <a th:href="@{/postC/{id}(id=${post.id})}"><img style="height: 30px" src="/img/commentBubble.png"></a>
