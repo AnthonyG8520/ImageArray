@@ -81,6 +81,13 @@ public class PostController {
         return "redirect:/";
     }
 
+    @PostMapping("/post/edit")
+    public String editPostDescription(@ModelAttribute Post post){
+        Post postToEdit = postDao.getById(post.getId());
+        postToEdit.setDescription(post.getDescription());
+        return "redirect:/post/" + postToEdit.getId();
+    }
+
     @PostMapping("/post/delete")
     public String deletePost(@RequestParam Long postId, @RequestParam Long userId){
         postDao.deleteById(postId);
