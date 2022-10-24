@@ -34,7 +34,13 @@
             })
 
             $('.viewUserButton').click(function(){
-                alert("You must be logged in to view profiles!")
+                $(this).parent().parent().children('.photoContainer').append('<div class="tooltipBox"><p class="tooltipText">Create an account to view a users page</p></div>')
+                setTimeout(function(){
+                    $('.tooltipBox').addClass('removeToFade')
+                },3000)
+                setTimeout(function(){
+                    $('.tooltipBox').remove()
+                },5000)
             })
 
             $('.notLoggedInPostPhoto').click(function(){
