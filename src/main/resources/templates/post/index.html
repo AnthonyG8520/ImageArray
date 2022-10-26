@@ -30,7 +30,13 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script>
             $('.commentButton').click(function(){
-                alert("You must be logged in to leave a comment!")
+                $(this).parent().parent().children('.photoContainer').append('<div class="tooltipBox"><p class="tooltipText">Create an account to leave comments</p></div>')
+                setTimeout(function(){
+                    $('.tooltipBox').addClass('removeToFade')
+                },3000)
+                setTimeout(function(){
+                    $('.tooltipBox').remove()
+                },5000)
             })
 
             $('.viewUserButton').click(function(){
