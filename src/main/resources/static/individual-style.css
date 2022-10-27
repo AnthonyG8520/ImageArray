@@ -45,6 +45,27 @@ body{
     padding: 20px 340px;
 }
 
+/*option bar above post photo    start*/
+#usernameAndOptionsBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#profilePhoto{
+    height: 40px;
+    border-radius: 50%;
+}
+
+#usernameAndOptionsBar h4{
+    margin-right: 270px;
+}
+
+#moreOptions{
+    height: 25px;
+}
+/*option bar above post photo     end*/
+
 #postNameAndCaption{
 
 }
