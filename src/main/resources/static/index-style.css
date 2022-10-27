@@ -38,7 +38,7 @@ body{
     background: whitesmoke;
 }
 
-/*tooltip when photo on post is clicked ans no user logged in      start*/
+/*tooltips for no user logged in      start*/
 .photoContainer{
     position: relative;
 }
@@ -62,7 +62,7 @@ body{
 .tooltipText{
     margin: 0;
 }
-/*tooltip when photo on post is clicked ans no user logged in      end*/
+/*tooltips for no user logged in      end*/
 
 /*contains all posts - display setting for entire container    start*/
 #postContainer{
