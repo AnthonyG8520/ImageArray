@@ -18,6 +18,11 @@
                 <input type="hidden" th:value="${post.user.id}" name="userId">
                 <button type="submit">Delete</button>
             </form>
+            <div id="usernameAndOptionsBar">
+                <img id="profilePhoto" th:src="${post.user.profilePicture}">
+                <h4 th:text="${post.user.username}"></h4>
+                <img id="moreOptions" src="/img/moreOptionsIcon.png">
+            </div>
             <img style="height: 400px; width: 400px" th:src="${post.imageUrl}">
             <div id="postNameAndCaption">
                 <h4 th:text="${post.user.username}"></h4>
