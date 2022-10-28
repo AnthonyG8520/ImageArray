@@ -58,10 +58,11 @@ body{
 }
 
 #usernameAndOptionsBar h4{
-    margin-right: 270px;
+    flex-basis: 300px;
 }
 
 #moreOptions{
+    margin-right: 15px;
     height: 25px;
 }
 /*option bar above post photo     end*/
