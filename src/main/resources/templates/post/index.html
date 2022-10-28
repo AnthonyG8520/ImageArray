@@ -12,7 +12,9 @@
         <div sec:authorize="isAuthenticated()">
             <nav th:replace="partials :: loggedInNav"></nav>
         </div>
-        <h1>Explore</h1>
+        <div class="center">
+            <h1>Explore</h1>
+        </div>
         <div id="postContainer">
             <div class="post" th:each="post : ${posts}">
                 <div class="photoContainer">
