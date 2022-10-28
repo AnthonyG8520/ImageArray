@@ -40,9 +40,11 @@ body{
 
 /*post container style       start*/
 #postContainer{
+    display: flex;
+    justify-content: space-evenly;
     background: white;
     margin: 0 400px;
-    padding: 20px 340px;
+    padding: 20px 0;
 }
 
 /*option bar above post photo    start*/
@@ -79,6 +81,14 @@ body{
 #postNameAndCaption p{
     display: inline-block;
 }
+
+/*caption and comment section     start*/
+#rightContainer{
+    padding-top: 60px;
+}
+
+
+/*caption and comment section    end*/
 
 
 
