@@ -38,6 +38,10 @@ body{
     background: whitesmoke;
 }
 
+.center{
+    text-align: center;
+}
+
 /*tooltips for no user logged in      start*/
 .photoContainer{
     position: relative;
