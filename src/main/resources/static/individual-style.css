@@ -94,6 +94,22 @@ body{
 
 /*post container style      end*/
 
+/*comment container and children styling     start*/
+#commentContainer{
+    width: 325px;
+}
+
+.comment{
+    display: flex;
+    margin: 10px 0;
+}
+
+.comment p{
+    margin: 0 0 0 10px;
+}
+
+/*comment container and children styling       end*/
+
 
 
 
