@@ -40,7 +40,7 @@
                     </form>
                 </div>
                 <div id="commentContainer">
-                    <div th:each="comment : ${post.getComments()}">
+                    <div class="comment" th:each="comment : ${post.getComments()}">
                         <a th:href="@{/view-user/{id}(id=${comment.user.id})}"><span th:text="${comment.user.username}"></span></a>
                         <p th:text="${comment.text}"></p>
                     </div>
