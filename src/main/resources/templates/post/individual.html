@@ -22,7 +22,16 @@
                 <div id="usernameAndOptionsBar">
                     <img id="profilePhoto" th:src="${post.user.profilePicture}">
                     <h4 th:text="${post.user.username}"></h4>
-                    <img id="moreOptions" src="/img/moreOptionsIcon.png">
+                    <div class="dropdown">
+                        <img id="moreOptions" src="/img/moreOptionsIcon.png">
+                        <div class="dropdown-content">
+                            <form th:if="${userIsOwner}" th:action="@{/post/delete}" method="post">
+                                <input type="hidden" th:value="${post.id}" name="postId">
+                                <input type="hidden" th:value="${post.user.id}" name="userId">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 <img style="height: 400px; width: 400px" th:src="${post.imageUrl}">
             </div>
