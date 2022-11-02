@@ -14,11 +14,6 @@
         </div>
         <div id="postContainer">
             <div id="leftContainer">
-                <form th:if="${userIsOwner}" th:action="@{/post/delete}" method="post">
-                    <input type="hidden" th:value="${post.id}" name="postId">
-                    <input type="hidden" th:value="${post.user.id}" name="userId">
-                    <button type="submit">Delete</button>
-                </form>
                 <div id="usernameAndOptionsBar">
                     <img id="profilePhoto" th:src="${post.user.profilePicture}">
                     <h4 th:text="${post.user.username}"></h4>
