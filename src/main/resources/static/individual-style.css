@@ -115,17 +115,26 @@ body{
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #565454;
+    background-color: whitesmoke;
+    border-radius: 5px;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
 .dropdown-content form {
+    text-align: center;
+    border-bottom: 1px solid black;
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+}
+
+.dropdown-content form button{
+    border: none;
+    background: none;
+    color: red;
 }
 
 .dropdown {
