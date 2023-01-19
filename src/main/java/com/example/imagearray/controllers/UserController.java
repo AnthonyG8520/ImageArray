@@ -65,6 +65,13 @@ public class UserController {
     public String viewUser(@PathVariable Long id, Model model){
         User user = userDao.getById(id);
         User loggedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        int followingCount = user.getUsersFollowed().size();
+        model.addAttribute("followingCount", followingCount);
+
+        int followerCount = usersFollowedDao.getFollowersCount(id);
+        model.addAttribute("followerCount", followerCount);
+
         UsersFollowed checkIfFollowed = usersFollowedDao.getByFollowedUserAndUser(user, loggedUser);
         model.addAttribute("checkIfFollowed", checkIfFollowed);
         model.addAttribute("loggedUser", loggedUser);
