@@ -48,7 +48,16 @@ public class UserController {
     @GetMapping("/profile/{id}")
     public String showProfile(@PathVariable Long id, Model model){
         User user = userDao.getById(id);
+
         int followingCount = user.getUsersFollowed().size();
+        model.addAttribute("followingCount", followingCount);
+
+        int followerCount = 0;
+        for(UsersFollowed followed : usersFollowedDao.getByFollowedUser(user)){
+            followerCount++;
+        }
+        model.addAttribute("followerCount", followerCount);
+
         model.addAttribute("loggedUser", user);
         model.addAttribute("posts", postDao.getUsersPostsByTime(id));
         return "user/profile";
