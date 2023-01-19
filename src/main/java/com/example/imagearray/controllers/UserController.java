@@ -48,14 +48,12 @@ public class UserController {
     @GetMapping("/profile/{id}")
     public String showProfile(@PathVariable Long id, Model model){
         User user = userDao.getById(id);
+        System.out.println(usersFollowedDao.getFollowersCount(id));
 
         int followingCount = user.getUsersFollowed().size();
         model.addAttribute("followingCount", followingCount);
 
-        int followerCount = 0;
-        for(UsersFollowed followed : usersFollowedDao.getByFollowedUser(user)){
-            followerCount++;
-        }
+        int followerCount = usersFollowedDao.getFollowersCount(id);
         model.addAttribute("followerCount", followerCount);
 
         model.addAttribute("loggedUser", user);
