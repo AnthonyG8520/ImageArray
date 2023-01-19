@@ -12,6 +12,10 @@
         <div>
             <h1 th:text="${loggedUser.username}"></h1>
             <img id="profilePic" th:src="${loggedUser.profilePicture}">
+            <h2>Following</h2>
+            <h4 th:text="${followingCount}"></h4>
+            <h2>Followers</h2>
+            <h4 th:text="${followerCount}"></h4>
         </div>
         <hr>
         <div>
