@@ -80,29 +80,28 @@ public class UserController {
         return "user/view-user";
     }
 
-    @GetMapping("/edit-user")
-    public String editUser(Model model){
+    @GetMapping("/edit-user/{id}")
+    public String editUser(@PathVariable Long id, Model model){
         User loggedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        User user = userDao.getById(loggedUser.getId());
         model.addAttribute("loggedUser", loggedUser);
+        model.addAttribute("user", userDao.getById(id));
         return "user/edit-user";
     }
 
     @PostMapping("/edit-user")
-    public String postEditUser(@ModelAttribute User loggedUser){
-        User user = userDao.getById(loggedUser.getId());
-        User newUser = user;
+    public String postEditUser(@ModelAttribute User user){
+        User loggedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        newUser.setUsername(loggedUser.getUsername());
-        newUser.setPassword(user.getPassword());
-        newUser.setComments(user.getComments());
-        newUser.setPosts(user.getPosts());
-        newUser.setEmail(user.getEmail());
-        newUser.setUsersFollowed(user.getUsersFollowed());
-        newUser.setProfilePicture(user.getProfilePicture());
+        user.setId(loggedUser.getId());
+        user.setPassword(loggedUser.getPassword());
+        user.setComments(loggedUser.getComments());
+        user.setPosts(loggedUser.getPosts());
+        user.setEmail(loggedUser.getEmail());
+        user.setUsersFollowed(loggedUser.getUsersFollowed());
+        user.setProfilePicture(loggedUser.getProfilePicture());
 
-
-
-        userDao.save(newUser);
+        userDao.save(user);
 
 
         return "redirect:/profile/" + loggedUser.getId();

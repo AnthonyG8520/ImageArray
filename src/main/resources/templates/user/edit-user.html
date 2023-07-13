@@ -9,7 +9,8 @@
     <div sec:authorize="isAuthenticated()">
         <nav th:replace="partials :: loggedInNav"></nav>
     </div>
-    <form th:action="@{/edit-user}" method="post" th:object="${loggedUser}">
+    <form th:action="@{/edit-user}" method="post" th:object="${user}">
+        <input type="hidden" th:value="${user.id}">
         <label for="username">Username</label>
         <input id="username" type="text" th:field="*{username}">
         <button type="submit">Edit</button>
