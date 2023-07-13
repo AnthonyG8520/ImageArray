@@ -17,6 +17,7 @@
             <h2>Followers</h2>
             <h4 th:text="${followerCount}"></h4>
         </div>
+        <a th:href="@{/edit-user}">Edit User</a>
         <hr>
         <div>
             <div th:each="post : ${posts}">

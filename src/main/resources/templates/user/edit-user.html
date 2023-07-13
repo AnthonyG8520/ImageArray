@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+    <link rel="stylesheet" th:href="@{/edit-user-style.css}">
+</head>
+<body>
+    <div sec:authorize="isAuthenticated()">
+        <nav th:replace="partials :: loggedInNav"></nav>
+    </div>
+    <form th:action="@{/edit-user}" method="post" th:object="${loggedUser}">
+        <label for="username">Username</label>
+        <input id="username" type="text" th:field="*{username}">
+        <button type="submit">Edit</button>
+    </form>
+
+
+
+
+</body>
+</html>

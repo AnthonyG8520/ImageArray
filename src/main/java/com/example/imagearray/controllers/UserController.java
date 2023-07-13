@@ -80,6 +80,34 @@ public class UserController {
         return "user/view-user";
     }
 
+    @GetMapping("/edit-user")
+    public String editUser(Model model){
+        User loggedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("loggedUser", loggedUser);
+        return "user/edit-user";
+    }
+
+    @PostMapping("/edit-user")
+    public String postEditUser(@ModelAttribute User loggedUser){
+        User user = userDao.getById(loggedUser.getId());
+        User newUser = user;
+
+        newUser.setUsername(loggedUser.getUsername());
+        newUser.setPassword(user.getPassword());
+        newUser.setComments(user.getComments());
+        newUser.setPosts(user.getPosts());
+        newUser.setEmail(user.getEmail());
+        newUser.setUsersFollowed(user.getUsersFollowed());
+        newUser.setProfilePicture(user.getProfilePicture());
+
+
+
+        userDao.save(newUser);
+
+
+        return "redirect:/profile/" + loggedUser.getId();
+    }
+
     @PostMapping("/follow-user")
     public String followUser(@RequestParam Long followedUserId){
         User loggedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
